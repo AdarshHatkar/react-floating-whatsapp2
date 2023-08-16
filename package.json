@@ -23,11 +23,8 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "clean-sb": "rm -rf storybook-static",
     "build": "yarn clean && rollup -c --exports auto",
-    "start": "start-storybook -p 6006",
-    "log": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md",
-    "build-sb": "build-storybook && vercel --prod"
+    "log": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -75,6 +72,7 @@
     "react",
     "whatsapp",
     "floating whatsapp button",
+    "floating whatsapp button 2",
     "whatsapp button",
     "react component",
     "react typescript"
@@ -83,6 +81,7 @@
     "react",
     "whatsapp",
     "floating-whatsapp-button",
+    "floating-whatsapp-button 2",
     "whatsapp-button",
     "react-component",
     "react-typescript"
@@ -104,5 +103,6 @@
       "last 1 safari version"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    }
 }
