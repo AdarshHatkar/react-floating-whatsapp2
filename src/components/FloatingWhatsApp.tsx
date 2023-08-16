@@ -12,8 +12,7 @@ export interface FloatingWhatsAppProps {
   /** Callback function fires on click */
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
 
-  /** Allow default submit action  */
-  allowDefaultSubmit?: boolean
+
   /** Callback function fires on submit with event and form input value passed */
   onSubmit?: (event: React.FormEvent<HTMLFormElement>, formValue: string) => void
   /** Callback function fires on close */
@@ -60,6 +59,10 @@ export interface FloatingWhatsAppProps {
   /** CSS className applied to notification */
   notificationClassName?: string
 
+  /** Allow default submit action  */
+  allowDefaultSubmit?: boolean
+  /** open the chat box if clicked on wp icon */
+  openChatOnClick?: boolean
   /** Closes the chat box if click outside the chat box */
   allowClickAway?: boolean
   /** Closes the chat box if `Escape` key is clicked */
@@ -79,7 +82,7 @@ export interface FloatingWhatsAppProps {
 
 export function FloatingWhatsApp({
   onClick,
-  allowDefaultSubmit=true,
+
   onSubmit,
   onClose,
   onNotification,
@@ -94,6 +97,8 @@ export function FloatingWhatsApp({
 
   messageDelay = 2,
 
+  allowDefaultSubmit = true,
+  openChatOnClick = true,
   allowClickAway = false,
   allowEsc = false,
 
@@ -163,11 +168,18 @@ export function FloatingWhatsApp({
     (event: React.MouseEvent<HTMLDivElement>) => {
       event.stopPropagation()
 
+     
+
       if (isOpen) return
 
-      clearInterval(notificationInterval.current)
-      dispatch({ type: 'open' })
-      setTimeout(() => dispatch({ type: 'delay' }), messageDelay * 1000)
+      
+      if(openChatOnClick){
+        clearInterval(notificationInterval.current)
+        dispatch({ type: 'open' })
+        setTimeout(() => dispatch({ type: 'delay' }), messageDelay * 1000)
+      }
+      
+    
       if (onClick) onClick(event)
     },
     [isOpen, onClick, messageDelay]
@@ -182,10 +194,10 @@ export function FloatingWhatsApp({
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (!inputRef.current?.value) return
-if(allowDefaultSubmit){
-  window.open(`https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${inputRef.current.value}`)
-}
-  
+    if (allowDefaultSubmit) {
+      window.open(`https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${inputRef.current.value}`)
+    }
+
     if (onSubmit) onSubmit(event, inputRef.current.value)
     inputRef.current.value = ''
   }
