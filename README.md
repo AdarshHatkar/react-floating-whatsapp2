@@ -1,4 +1,4 @@
-# React Floating Whatsapp
+# React Floating Whatsapp2
 
 > Simple react component for adding a floating WhatsApp button to your project.
 
