@@ -78,6 +78,12 @@ export default function App() {
 
 [![Edit react-floating-whatsapp2](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-floating-whatsapp2-183py)
 
+### Credits 
+
+[awran5](https://github.com/awran5/react-floating-whatsapp/)
+
+i forked this project because owner is inactive from last many months also need some extra functionality and more stability 
+
 ### License
 
 MIT © [AdarshHatkar](https://github.com/AdarshHatkar/)
