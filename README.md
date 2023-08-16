@@ -24,12 +24,7 @@ npm i react-floating-whatsapp2
 yarn add react-floating-whatsapp2
 ```
 
-## [v5.0.0](https://github.com/AdarshHatkar/react-floating-whatsapp2/compare/v4.0.5...v5.0.0) - 2022-10-07
 
-- **BREAKING CHANGES:** change **default** import to **name** import
-- **BREAKING CHANGES:** rename `height` prop to `chatboxHeight`
-- **BREAKING CHANGES:** rename `styles` prop to `style`
-- **BREAKING CHANGES:** `notificationDelay` now in seconds instead of millisecond
 
 ## Usage
 
