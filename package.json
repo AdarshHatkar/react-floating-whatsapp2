@@ -24,7 +24,9 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "yarn clean && rollup -c --exports auto",
-    "log": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md"
+    "log": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md",
+    "release:patch": "npm version patch",
+    "postversion": "git push && git push --tags && npm publish"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -103,6 +105,5 @@
       "last 1 safari version"
     ]
   },
-  "dependencies": {
-    }
+  "dependencies": {}
 }
