@@ -23,7 +23,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "yarn clean && rollup -c --exports auto",
+    "build": "rollup -c --exports auto",
     "log": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md",
     "release:patch": "npm version patch",
     "postversion": "git push && git push --tags && npm publish"
@@ -105,5 +105,7 @@
       "last 1 safari version"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "yarn": "^1.22.22"
+  }
 }
