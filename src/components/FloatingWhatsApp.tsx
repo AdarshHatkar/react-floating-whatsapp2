@@ -78,6 +78,8 @@ export interface FloatingWhatsAppProps {
   buttonStyle?: React.CSSProperties
   /** CSS className applied to button */
   buttonClassName?: string
+  /** Inline style applied to send button */
+  sendButtonClassName?: string
 }
 
 export function FloatingWhatsApp({
@@ -116,6 +118,7 @@ export function FloatingWhatsApp({
   chatboxHeight = 320,
   chatboxStyle,
   chatboxClassName = 'floating-whatsapp-chatbox',
+  sendButtonClassName = 'floating-whatsapp-send-button',
 
   darkMode = false,
   style,
@@ -168,18 +171,18 @@ export function FloatingWhatsApp({
     (event: React.MouseEvent<HTMLDivElement>) => {
       event.stopPropagation()
 
-     
+
 
       if (isOpen) return
 
-      
-      if(openChatOnClick){
+
+      if (openChatOnClick) {
         clearInterval(notificationInterval.current)
         dispatch({ type: 'open' })
         setTimeout(() => dispatch({ type: 'delay' }), messageDelay * 1000)
       }
-      
-    
+
+
       if (onClick) onClick(event)
     },
     [isOpen, onClick, messageDelay]
@@ -255,7 +258,7 @@ export function FloatingWhatsApp({
             <span className={css.statusTitle}>{accountName}</span>
             <span className={css.statusSubtitle}>{statusMessage}</span>
           </div>
-          <div className={css.close} onClick={handleClose} aria-hidden='true'>
+          <div className={`${css.close} ${sendButtonClassName}`} onClick={handleClose} aria-hidden='true'>
             <CloseSVG />
           </div>
         </header>
