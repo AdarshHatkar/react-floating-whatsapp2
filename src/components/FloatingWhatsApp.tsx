@@ -258,7 +258,7 @@ export function FloatingWhatsApp({
             <span className={css.statusTitle}>{accountName}</span>
             <span className={css.statusSubtitle}>{statusMessage}</span>
           </div>
-          <div className={`${css.close} ${sendButtonClassName}`} onClick={handleClose} aria-hidden='true'>
+          <div className={`${css.close}`} onClick={handleClose} aria-hidden='true'>
             <CloseSVG />
           </div>
         </header>
@@ -290,7 +290,7 @@ export function FloatingWhatsApp({
         <footer className={css.chatFooter}>
           <form onSubmit={handleSubmit}>
             <input className={css.input} placeholder={placeholder} ref={inputRef} dir='auto' />
-            <button type='submit' className={css.buttonSend}>
+            <button type={`submit`} className={`${css.buttonSend} ${sendButtonClassName}`} aria-label='Send message'>
               <SendSVG />
             </button>
           </form>
